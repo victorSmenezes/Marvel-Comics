@@ -11,6 +11,7 @@ body {
     background: #a7a7a7;
 }
 
+/* Parte Superior*/
 header {
     width: 100%;
     height: 50px;
@@ -34,45 +35,108 @@ nav {
     align-self: center;
 }
 
+/*Parte Central */
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4;
+    height: 100vh;
+}
+
 .Container {
+    /*Onde os comics ficam*/
     width: 50vw;
     height: 100vh;
     display: grid;
-    grid-template-columns: repeat(4, 2fr);
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 35px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 40px;
+    margin: auto;
+    margin-top: 35px;
 }
 
-.Comic-heroes {
+.Comics-Heroes {
     color: #202020;
 }
 
 .imgs {
-    width: 220px;
-    height: 320px;
-    border-radius: 5px;
+    /* Imagens do comics*/
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
 }
 
 .Struture {
-    position: static;
-    width: 222px;
-    border: 1px solid #000000;
-    border-radius: 5px;
+    /*Ligado ao JS aplicando ao comics*/
+    width: 220px;
+    height: auto;
+    border:  none;
+    border-radius: 2px;
     text-align: center;
     font-size: 20px;
     font-weight: 700;
     cursor: pointer;
     background-color: #666666;
     margin-top: 3px;
-    z-index: 1;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
 }
 
-.Struture:hover {
-    width: 520px;
-    height: 520px;
-    position: relative;
-    z-index: 99;
+.text {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 5px;
+    color: #000000;
+}
 
+.comic {
+    grid-column: span 1;
+}
+
+/* Modal onde aparecerá e desaparecerá a descricao*/
+
+.modal {/* esconde o modal por padrão */
+    display: none;
+    position: fixed; /* posiciona o modal em relação à janela do navegador */
+    z-index: 1; /* coloca o modal acima de todos os outros elementos da página */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* adiciona uma barra de rolagem se o conteúdo do modal for muito grande */
+    background-color: rgba(0, 0, 0, 0.8); 
+    
+}
+
+/* estilo para o conteúdo do modal */
+.modal-content {
+    background-color: #7c7c7c;
+    margin: 15% auto; /* centraliza o modal verticalmente */
+    padding: 20px;
+    width: 60%;
+    height: 500px;
+    max-width: 500px;
+    color: #000000;
+    font-size: 20px
+}
+
+.description-text{
+    font-size: 20px;
+    color: #000000;
+    font-weight: bold;
+}
+
+/* estilo para o botão de fechar o modal */
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
