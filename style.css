@@ -100,24 +100,32 @@ nav {
     position: fixed; /* posiciona o modal em relação à janela do navegador */
     z-index: 1; /* coloca o modal acima de todos os outros elementos da página */
     left: 0;
-    top: 0;
+    top: 0px;
     width: 100%;
     height: 100%;
     overflow: auto; /* adiciona uma barra de rolagem se o conteúdo do modal for muito grande */
     background-color: rgba(0, 0, 0, 0.8); 
-    
 }
 
 /* estilo para o conteúdo do modal */
 .modal-content {
     background-color: #7c7c7c;
-    margin: 15% auto; /* centraliza o modal verticalmente */
+    margin: 8% auto; /* centraliza o modal verticalmente */
     padding: 20px;
-    width: 60%;
-    height: 500px;
+    width: 50%;
+    height: auto;
     max-width: 500px;
     color: #000000;
-    font-size: 20px
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+.imgModal{
+    /* Imagens do comics*/
+    width: 50%;
+    height: 300px;
+    border-radius: 2px;
+    margin-bottom: 18px;
 }
 
 .description-text{
@@ -128,9 +136,9 @@ nav {
 
 /* estilo para o botão de fechar o modal */
 .close-button {
-    color: #aaa;
+    color: #eeeeee;
     float: right;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
 }
 
