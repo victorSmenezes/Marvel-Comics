@@ -33,6 +33,7 @@ nav {
     color: #e9e9e9;
     font-size: 25px;
     align-self: center;
+    margin: 5px;
 }
 
 /*Parte Central */
@@ -122,8 +123,8 @@ nav {
 
 .imgModal{
     /* Imagens do comics*/
-    width: 50%;
-    height: 300px;
+    width: 60%;
+    height: 380px;
     border-radius: 2px;
     margin-bottom: 18px;
 }
@@ -132,6 +133,7 @@ nav {
     font-size: 20px;
     color: #000000;
     font-weight: bold;
+    margin-top: 18px;
 }
 
 /* estilo para o botão de fechar o modal */
@@ -147,4 +149,10 @@ nav {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+  float: inline-end;
 }

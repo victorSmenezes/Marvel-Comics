@@ -7,7 +7,6 @@ fetch(`http://gateway.marvel.com/v1/public/comics?&ts=${timeStamp}&apikey=${publ
     return response.json();
 
 }).then(async (jsonParsed) => {
-    console.log(jsonParsed)
 
     const divComic = document.querySelector('.Comics-Heroes')
     await jsonParsed.data.results.forEach(element => {
@@ -43,44 +42,94 @@ const createComics = (Image, title, divToAppend, description) => {
         Description(Image, title, description);
     });
 
+
+    function Description(Logo, title, description) {
+        const modal = document.querySelector('.modal')
+        const modalContent = modal.querySelector('.modal-content')
+        const imgModal = document.createElement('img')
+        const titleModal = document.createElement('h3')
+        const descriptionText = document.createElement('p')
+
+        imgModal.src = Logo
+        if (imgModal.src == 'undefined') {
+            imgModal.remove()
+        }
+        titleModal.textContent = title
+
+
+        if (description !== null && description !== undefined && description !== "") {
+            descriptionText.textContent = description
+        } else {
+            descriptionText.textContent = 'Description unavailable'
+        }
+
+        imgModal.classList.add('imgModal')
+        descriptionText.classList.add('description-text')
+
+        modalContent.appendChild(imgModal)
+        modalContent.appendChild(titleModal)
+        modalContent.appendChild(descriptionText)
+
+        modal.style.display = 'block'
+
+        const closeButton = document.querySelector('.close-button')
+        closeButton.addEventListener('click', () => {
+            modal.style.display = 'none'
+            titleModal.remove()
+            imgModal.remove()
+            descriptionText.remove()
+        })
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+                titleModal.remove()
+                imgModal.remove()
+                descriptionText.remove()
+            }
+
+        }
+
+    }
 }
 
-async function Description(Logo, title, description) {
-    const modal = document.querySelector('.modal')
-    const modalContent = modal.querySelector('.modal-content')
-    const imgModal = document.createElement('img')
-    const titleModal = document.createElement('h3')
-    const descriptionText = document.createElement('p')
+const initMap = () => {
+    // Define a localização inicial do mapa
+    const myLatLng = { lat: -23.550520, lng: -46.633308 };
 
-    imgModal.src = Logo
-    if(imgModal.src == 'undefined' ){
-    imgModal.remove() 
-    }
-    titleModal.textContent = title
-    
+    // Cria um novo mapa do Google Maps e o centraliza na localização definida acima
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 8,
+        center: myLatLng,
+    });
 
-    if (description !== null || undefined) {
-        descriptionText.textContent = description
-    } else {
-        descriptionText.textContent = 'Description unavailable'
-    }
+    // Cria um marcador para a localização inicial
+    new google.maps.Marker({
+        position: myLatLng,
+        map,
+        title: "Endereço do comics",
+    });
+    map.addListener("click", (event) => {
+        // Obtém as coordenadas do ponto clicado
+        const clickedLatLng = event.latLng;
 
-    imgModal.classList.add('imgModal')
-    descriptionText.classList.add('description-text')
-    
-    modalContent.appendChild(imgModal)
-    modalContent.appendChild(titleModal)
-    modalContent.appendChild(descriptionText)
-
-    modal.style.display = 'block'
-
-   const closeButton = document.querySelector('.close-button')
-    closeButton.addEventListener('click', () => {
-        modal.style.display = 'none'
-        titleModal.remove()
-        imgModal.remove()
-        descriptionText.remove()
-    })
+        // Cria um novo marcador no ponto clicado
+        new google.maps.Marker({
+            position: clickedLatLng,
+            map,
+            title: "Novo local",
+        });
+       
+        let marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'Endereço do comics'
+          });
+          
+          // Deletar o marcador
+          marker.setMap(null);
+    });
 
 }
+initMap()
 
