@@ -111,7 +111,7 @@ nav {
 /* estilo para o conteúdo do modal */
 .modal-content {
     background-color: #7c7c7c;
-    margin: 8% auto; /* centraliza o modal verticalmente */
+    margin: 5% auto; /* centraliza o modal verticalmente */
     padding: 20px;
     width: 50%;
     height: auto;
@@ -151,8 +151,39 @@ nav {
     cursor: pointer;
 }
 
+.title-map{
+    width: 25%;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+}
 #map {
-  height: 400px;
+  height: 410px;
   width: 100%;
-  float: inline-end;
+  border-radius: 10px;
+}
+
+.button-map{
+    width: 10%;
+    height: 40px;
+    float: right;
+    border: none;
+    border-radius: 14px;
+    text-align: center;
+    padding-top: 5px;
+    color: #0010f0;
+    font-weight: bold;
+    font-size: 22px;
+    position: relative;
+    
+}
+
+.button-map:hover{
+    opacity: .7;
+    border-radius: 14px;
+}
+.button-map:focus {
+    opacity: .7;
+    cursor: pointer;
+    border-radius: 14px;
 }

@@ -110,6 +110,7 @@ const initMap = () => {
         title: "Endereço do comics",
     });
     map.addListener("click", (event) => {
+        
         // Obtém as coordenadas do ponto clicado
         const clickedLatLng = event.latLng;
 
@@ -126,8 +127,7 @@ const initMap = () => {
             title: 'Endereço do comics'
           });
           
-          // Deletar o marcador
-          marker.setMap(null);
+          
     });
 
 }
