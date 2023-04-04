@@ -16,11 +16,11 @@
     <header>
         <nav>
             <a href="./index.html"><img class="marvel-logo" src="./assets/Marvel_Logo.svg.png" alt="marvel-logo"></a>
-            <a class="link-comics" href="">Comics</a>
+            <a class="link-comics" href="#Container">Comics</a>
         </nav>
     </header>
 
-    <main class="Container">
+    <main id="Container" class="Container">
         <div class="Comics-Heroes Container">
         </div>
     </main>
@@ -31,9 +31,9 @@
         </div>
         <h2 class="modal-content title-map">Comic Submission Location</h2>
         <div id="map" class="modal-content"></div>
-        <button class="modal-content button-map">To send</button> <!-- Aplicar CSS -->
+        <button class="modal-content button-map" onclick="SendComic()">To send &rarr;</button> 
     </div>
 </body>
-<script src="./script.js"></script>
+<script src="script.js"></script>
 
 </html>

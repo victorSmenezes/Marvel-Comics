@@ -93,43 +93,72 @@ const createComics = (Image, title, divToAppend, description) => {
     }
 }
 
-const initMap = () => {
+
+// Array para armazenar os marcadores criados
+const markers = [];
+
+async function initMap() {
     // Define a localização inicial do mapa
     const myLatLng = { lat: -23.550520, lng: -46.633308 };
 
     // Cria um novo mapa do Google Maps e o centraliza na localização definida acima
-    const map = new google.maps.Map(document.getElementById("map"), {
+    map = await new google.maps.Map(document.querySelector("#map"), {
         zoom: 8,
         center: myLatLng,
     });
 
     // Cria um marcador para a localização inicial
-    new google.maps.Marker({
+    const marker = new google.maps.Marker({
         position: myLatLng,
         map,
         title: "Endereço do comics",
     });
+
+    // Adiciona o marcador ao array de marcadores
+    markers.push(marker);
+
+    // Adiciona um listener de evento 'click' para o marcador
+    marker.addListener('click', () => {
+        // Remove o marcador do mapa
+        marker.setMap(null);
+
+        // Remove o marcador do array de marcadores
+        const index = markers.indexOf(marker);
+        markers.splice(index, 1);
+    });
+
+    // Adiciona um listener de evento 'click' no mapa para criar novos marcadores
     map.addListener("click", (event) => {
-        
-        // Obtém as coordenadas do ponto clicado
         const clickedLatLng = event.latLng;
 
         // Cria um novo marcador no ponto clicado
-        new google.maps.Marker({
+        const marker = new google.maps.Marker({
             position: clickedLatLng,
             map,
             title: "Novo local",
         });
-       
-        let marker = new google.maps.Marker({
-            position: myLatLng,
-            map: map,
-            title: 'Endereço do comics'
-          });
-          
-          
+
+        // Adiciona o marcador ao array de marcadores
+        markers.push(marker);
+
+        // Adiciona um listener de evento 'click' para o marcador
+        marker.addListener('click', () => {
+            // Remove o marcador do mapa
+            marker.setMap(null);
+
+            // Remove o marcador do array de marcadores
+            const index = markers.indexOf(marker);
+            markers.splice(index, 1);
+        });
     });
-
 }
-initMap()
 
+initMap();
+
+
+//Botão de envio
+SendComic = () => {
+    const btn = document.querySelector('.button-map')
+
+    window.alert('Congratulations! Comic Sent')
+}
