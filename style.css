@@ -251,6 +251,10 @@ hr {
         width: 20vh;
         margin: 35px auto 25px 45px;
     }
+    
+    .imgs{
+        width: 180px;
+    }
 
     .Struture {
         width: 180px;
@@ -313,6 +317,10 @@ hr {
     .Container {
         width: 20vh;
         margin: 35px auto 25px 55px;
+    }
+
+    .imgs{
+        width: 190px;
     }
 
     .Struture {
