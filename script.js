@@ -2,7 +2,7 @@ const timeStamp = '1680032266592'
 const publicKey = 'e187e79cf0de61308b19050431647dd0'
 const MD5hash = 'b7a47d57a28af2179f449749b980f378' // MD5 = TimeStamp + privateKey + publicKey
 
-fetch(`http://gateway.marvel.com/v1/public/comics?&ts=${timeStamp}&apikey=${publicKey}&hash=${MD5hash}` //Consumo da API - Marvel
+fetch(`https://gateway.marvel.com/v1/public/comics?&ts=${timeStamp}&apikey=${publicKey}&hash=${MD5hash}` //Consumo da API - Marvel
 ).then((response) => {
     return response.json();
 
