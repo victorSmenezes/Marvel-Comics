@@ -1,8 +1,8 @@
 const timeStamp = '1680032266592'
 const publicKey = 'e187e79cf0de61308b19050431647dd0'
-const MD5hash = 'b7a47d57a28af2179f449749b980f378'
+const MD5hash = 'b7a47d57a28af2179f449749b980f378' // MD5 = TimeStamp + privateKey + publicKey
 
-fetch(`http://gateway.marvel.com/v1/public/comics?&ts=${timeStamp}&apikey=${publicKey}&hash=${MD5hash}` //Consumo da API
+fetch(`http://gateway.marvel.com/v1/public/comics?&ts=${timeStamp}&apikey=${publicKey}&hash=${MD5hash}` //Consumo da API - Marvel
 ).then((response) => {
     return response.json();
 
@@ -19,6 +19,7 @@ fetch(`http://gateway.marvel.com/v1/public/comics?&ts=${timeStamp}&apikey=${publ
 
 })
 
+// Parte Central, onde aparece os comics
 const createComics = (Image, title, divToAppend, description) => {
     const comicContainer = document.createElement('div')
     const titleBox = document.createElement('div')
@@ -43,6 +44,7 @@ const createComics = (Image, title, divToAppend, description) => {
     });
 
 
+    // Modal de descricao
     function Description(Logo, title, description) {
         const modal = document.querySelector('.modal')
         const modalContent = modal.querySelector('.modal-content')
@@ -51,13 +53,10 @@ const createComics = (Image, title, divToAppend, description) => {
         const descriptionText = document.createElement('p')
 
         imgModal.src = Logo
-        if (imgModal.src == 'undefined') {
-            imgModal.remove()
-        }
         titleModal.textContent = title
 
 
-        if (description !== null && description !== undefined && description !== "") {
+        if (description !== null && description !== undefined && description !== "") { //Caso nao haja descricao
             descriptionText.textContent = description
         } else {
             descriptionText.textContent = 'Description unavailable'
@@ -87,9 +86,7 @@ const createComics = (Image, title, divToAppend, description) => {
                 imgModal.remove()
                 descriptionText.remove()
             }
-
         }
-
     }
 }
 
@@ -98,11 +95,14 @@ const createComics = (Image, title, divToAppend, description) => {
 const markers = [];
 
 async function initMap() {
-    // Define a localização inicial do mapa
+    if (typeof google === 'undefined') { // Verifica se a variavel esta definida
+        setTimeout(initMap, 1000);
+        return;
+    }
     const myLatLng = { lat: -23.550520, lng: -46.633308 };
 
-    // Cria um novo mapa do Google Maps e o centraliza na localização definida acima
     map = await new google.maps.Map(document.querySelector("#map"), {
+        mapId: 'c772d974e576c695',
         zoom: 8,
         center: myLatLng,
     });
@@ -114,39 +114,32 @@ async function initMap() {
         title: "Endereço do comics",
     });
 
-    // Adiciona o marcador ao array de marcadores
+    // Guarda o marcador ao array de marcadores
     markers.push(marker);
 
-    // Adiciona um listener de evento 'click' para o marcador
     marker.addListener('click', () => {
         // Remove o marcador do mapa
         marker.setMap(null);
 
-        // Remove o marcador do array de marcadores
         const index = markers.indexOf(marker);
         markers.splice(index, 1);
     });
 
-    // Adiciona um listener de evento 'click' no mapa para criar novos marcadores
+    // Adiciona no mapa novos marcadores
     map.addListener("click", (event) => {
         const clickedLatLng = event.latLng;
 
-        // Cria um novo marcador no ponto clicado
         const marker = new google.maps.Marker({
             position: clickedLatLng,
             map,
             title: "Novo local",
         });
 
-        // Adiciona o marcador ao array de marcadores
         markers.push(marker);
-
-        // Adiciona um listener de evento 'click' para o marcador
+    // Apaga os anteriores
         marker.addListener('click', () => {
-            // Remove o marcador do mapa
             marker.setMap(null);
 
-            // Remove o marcador do array de marcadores
             const index = markers.indexOf(marker);
             markers.splice(index, 1);
         });

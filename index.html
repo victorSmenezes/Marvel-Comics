@@ -6,9 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtyHeN5AEr8STuXXdz465Os0pGWY8g4o8&callback=initMap" async
-        defer></script>
+    <link rel="shortcut icon" href="./assets/M-marvel-logo.png" type="image/x-icon">
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtyHeN5AEr8STuXXdz465Os0pGWY8g4o8&callback=initMap&v=weekly"
+      defer
+    ></script> <!--Api Google Maps-->
     <title>Marvel Comics</title>
 </head>
 
@@ -24,15 +26,23 @@
         <div class="Comics-Heroes Container">
         </div>
     </main>
-
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
         </div>
         <h2 class="modal-content title-map">Comic Submission Location</h2>
         <div id="map" class="modal-content"></div>
-        <button class="modal-content button-map" onclick="SendComic()">To send &rarr;</button> 
+        <button class="modal-content button-map" onclick="SendComic()">To send &rarr;</button>
     </div>
+
+
+    <footer>
+            <p class="footer-p"><a target="_blank" href="https://www.linkedin.com/in/victor-santos-de-menezes/"
+                 class="footer-link">&copy; Victor Santos</a></p>
+            <hr>
+            <a href="./index.html" ><img id="m-logo" src="./assets/M-marvel-logo.png" alt="M-marvel-logo"></a>
+    </footer>
+
 </body>
 <script src="script.js"></script>
 

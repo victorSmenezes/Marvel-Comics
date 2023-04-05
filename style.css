@@ -26,6 +26,7 @@ nav {
     width: 275px;
     padding-left: 150px;
     margin-right: 25px;
+    cursor: pointer;
 }
 
 .link-comics {
@@ -36,7 +37,7 @@ nav {
     margin: 5px;
 }
 
-.link-comics:hover{
+.link-comics:hover {
     color: #ff0101;
 }
 
@@ -47,13 +48,14 @@ nav {
     flex-direction: column;
     align-items: center;
     background-color: #f4f4f4;
-    height: 100vh;
+    height: 200vh;
+    margin-bottom: 50px;
 }
 
 .Container {
-    /*Onde os comics ficam*/
+    /*Onde os comics ficam e se organizarão na tela*/
     width: 50vw;
-    height: 100vh;
+    height: auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 40px;
@@ -63,6 +65,7 @@ nav {
 
 .Comics-Heroes {
     color: #202020;
+    margin-bottom: 50px;
 }
 
 .imgs {
@@ -98,7 +101,7 @@ nav {
     grid-column: span 1;
 }
 
-/* Modal onde aparecerá e desaparecerá a descricao*/
+/* Modal onde aparecerá e desaparecerá a descricao e mapa*/
 
 .modal {
     /* esconde o modal por padrão */
@@ -129,7 +132,7 @@ nav {
 .imgModal {
     /* Imagens do comics*/
     width: 60%;
-    height: 380px;
+    height: auto;
     border-radius: 2px;
     margin-bottom: 18px;
 }
@@ -155,6 +158,8 @@ nav {
     cursor: pointer;
 }
 
+/* Mapa */
+
 .title-map {
     width: 25%;
     text-align: center;
@@ -170,7 +175,7 @@ nav {
 }
 
 .button-map {
-    margin: -20px  30% 30px 58%;
+    margin: -20px 30% 30px 58%;
     width: 120px;
     height: 50px;
     border: none;
@@ -190,4 +195,169 @@ nav {
 .button-map:active {
     opacity: .6;
     color: #ffffff;
+}
+
+/* Rodapé - Parte inferior*/
+
+footer {
+    background-color: #141414;
+    padding-left: 150px;
+    width: 100%;
+    height: auto;
+}
+
+.footer-link {
+    text-decoration: none;
+    display: inline-block;
+    color: #646464;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.footer-link:hover {
+    color: #FFFFFF;
+}
+
+.footer-link:active {
+    color: #686868;
+}
+
+hr {
+    margin-bottom: 10px;
+}
+
+#m-logo {
+    width: 90px;
+    height: 100px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+
+/* Responsividade*/
+
+@media screen and (max-width: 390px) {
+
+    /*Parte Superior*/
+
+    .marvel-logo {
+        width: 125px;
+        padding-left: 1px;
+    }
+
+    /*Parte Central*/
+
+    .Container {
+        width: 20vh;
+        margin: 35px auto 25px 45px;
+    }
+
+    .Struture {
+        width: 180px;
+    }
+
+    .modal-content {
+        font-size: 18px;
+    }
+
+    .imgModal{
+        width: 140px;
+        margin-top: 10px;
+        margin-bottom: 12px;
+    }
+
+    .description-text{
+        font-size: 16px;
+        margin-top: 6px;
+    }
+
+    .title-map{
+        font-size: 18px;
+        width: 30%;
+    }
+
+    #map{
+        width: 70%;
+        height: 40%;
+    }
+
+    .button-map {
+        width: 110px;
+        font-size: 16px;
+        margin-top: 6px;
+        margin-left: 55%;
+    }
+
+    /*Parte Inferior*/
+
+    footer{
+        padding-left: 50px;
+    }
+    
+    hr{
+       width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    /*Parte Superior*/
+
+    .marvel-logo {
+        width: 125px;
+        padding-left: 1px;
+    }
+
+    /*Parte Central*/
+
+    .Container {
+        width: 20vh;
+        margin: 35px auto 25px 55px;
+    }
+
+    .Struture {
+        width: 190px;
+    }
+
+    .modal-content {
+        font-size: 16px;
+    }
+
+    .imgModal{
+        width: 145px;
+        margin-top: 15px;
+        margin-bottom: 12px;
+    }
+
+    .description-text{
+        font-size: 16px;
+        margin-top: 6px;
+    }
+
+    .title-map{
+        font-size: 18px;
+        width: 30%;
+    }
+
+    #map{
+        width: 70%;
+        height: 40%;
+    }
+
+    .button-map {
+        width: 110px;
+        font-size: 16px;
+        margin-top: 6px;
+        margin-left: 55%;
+    }
+
+    /*Parte Inferior*/
+
+    footer{
+        padding-left: 50px;
+    }
+    
+    hr{
+       width: 90%;
+    }
 }
