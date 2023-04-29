@@ -1,4 +1,3 @@
-
 // Array para armazenar os marcadores criados
 const markers = [];
 
