@@ -2,7 +2,10 @@ const timeStamp = '1680032266592'
 const publicKey = 'e187e79cf0de61308b19050431647dd0'
 const MD5hash = 'b7a47d57a28af2179f449749b980f378' // MD5 = TimeStamp + privateKey + publicKey
 
-fetch(`https://gateway.marvel.com/v1/public/comics?format=infinite%20comic&formatType=comic&noVariants=false&ts=${timeStamp}&apikey=${publicKey}&hash=${MD5hash}` //Consumo da API - Marvel
+fetch(`https://gateway.marvel.com/v1/public/comics?format=digest&formatType=comic&noVariants=false&ts=
+${timeStamp}
+&apikey=${publicKey}
+&hash=${MD5hash}` //Consumo da API - Marvel
 ).then((response) => {
     return response.json();
 
@@ -16,7 +19,7 @@ fetch(`https://gateway.marvel.com/v1/public/comics?format=infinite%20comic&forma
 
         createComics(Image, Title, divComic, description)
     })
-console.log(jsonParsed)
+    console.log(jsonParsed)
 })
 
 // Parte Central, onde aparece os comics
