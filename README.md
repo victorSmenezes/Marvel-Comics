@@ -26,4 +26,9 @@ Este projeto foi desenvolvido usando as seguintes tecnologias:
 Api's usadas neste site foram:
 
 - Marvel-API
+
+https://developer.marvel.com/
+
 - Google Maps - API
+
+https://developers.google.com/maps?hl=pt-br
